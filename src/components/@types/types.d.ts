@@ -1,7 +1,8 @@
 export interface ButtonProps {
-   onClick? : () => void;
-   children : React.ReactNode;
-   className? : string;
-   background? : 'primary' | 'secondary' | 'accent';
-   img? : 'string';
+   children: React.ReactNode;
+   background: "primary" | "secondary" | "accent";
+   size: "small" | "medium" | "large";
+   icon?: JSX.Element;
+   className?: string;
+   onClick?: () => void;
 }
