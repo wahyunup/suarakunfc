@@ -4,8 +4,11 @@ Direktori ini berisi komponen dan tipe yang dapat digunakan kembali untuk proyek
 
 ## Struktur
 
-### `@types/types.d.ts`
+### `@types/ui.d.ts`
 File ini berisi definisi tipe TypeScript yang digunakan di berbagai komponen. Anda dapat mendefinisikan tipe, interface, dan enum yang dapat digunakan bersama di sini untuk menjaga konsistensi dan mengurangi redundansi kode. Jadi, sebelum membuat sebuah component, pastikan type nya sudah terinisialisasi
+
+### `@types/partials.d.ts`
+File ini berisi definisi tipe TypeScript yang digunakan untuk types khusus pada components yang ada pada folder `partials`. Anda dapat mendefinisikan tipe, interface, dan enum yang dapat digunakan bersama untuk menjaga konsistensi dan mengurangi redundansi kode. Jadi, sebelum membuat sebuah partials, pastikan type nya sudah terinisialisasi
 
 ### `components/ui/...`
 File ini berisi implementasi beberapa komponen yang dapat digunakan kembali. Komponen ini dapat diubah gaya dan fungsinya sesuai kebutuhan proyek.
@@ -60,5 +63,5 @@ export default function Home() {
 
 ### `partials/...`
 Folder ini peruntukan untuk components yang hampir digunakan di berbagai parent seperti Navbar dan Footer.
-`Note:` Untuk file yang ada didalam folder partials ini dia punya masing masing file `main.tsx` yang isinya adalah kumpulan dari components yang ada didalam partials
+Note: Untuk file yang ada didalam folder partials ini dia punya masing masing file `main.tsx` yang isinya adalah kumpulan dari components yang ada didalam partials
 
