@@ -1,4 +1,4 @@
-import { Button, Input } from "@/components";
+import { Button, Input } from "@/components/ui";
 
 export default function Home() {
   return (
@@ -10,6 +10,12 @@ export default function Home() {
         name="password"
         type="password"
         placeholder="Password"
+      />
+      <Input
+        name="text"
+        type="text"
+        placeholder="text"
+        className="mt-4"
       />
     </>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { InputProps } from "../@types/types";
+import { InputProps } from "../../@types/ui";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 
 const Input = ({
