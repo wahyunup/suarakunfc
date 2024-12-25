@@ -8,7 +8,7 @@ Direktori ini berisi komponen dan tipe yang dapat digunakan kembali untuk proyek
 File ini berisi definisi tipe TypeScript yang digunakan di berbagai komponen. Anda dapat mendefinisikan tipe, interface, dan enum yang dapat digunakan bersama di sini untuk menjaga konsistensi dan mengurangi redundansi kode. Jadi, sebelum membuat sebuah component, pastikan type nya sudah terinisialisasi
 
 ### `components/......`
-File ini berisi implementasi komponen Button yang dapat digunakan kembali. Komponen ini dapat diubah gaya dan fungsinya sesuai kebutuhan proyek.
+File ini berisi implementasi beberapa komponen yang dapat digunakan kembali. Komponen ini dapat diubah gaya dan fungsinya sesuai kebutuhan proyek.
 
 #### Contoh Penggunaan:
 ```tsx
@@ -22,5 +22,38 @@ const App = () => {
     </Button>
   );
 };
+
+```
+
+### `index.tsx`
+File ini berisi kumpulan dari beberapa components yang di export. Jadi, setelah selesai membuat component, buatkan export di `index.tsx`. Fungsinya supaya kodingan menjadi rapih dan terstruktur.
+
+### Contoh Penggunaan:
+```tsx
+
+export { default as Button } from "./Button/Button";
+export { default as Input } from "./Input/Input";
+
+```
+
+### Ketika digunakan di parent
+```tsx
+
+import { Button, Input } from "@/components";
+
+export default function Home() {
+  return (
+    <>
+      <Button className={"p-4"} background="secondary" size="medium">
+        Masuk
+      </Button>
+      <Input
+        name="password"
+        type="password"
+        placeholder="Password"
+      />
+    </>
+  );
+}
 
 ```
