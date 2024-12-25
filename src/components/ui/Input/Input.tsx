@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { InputProps } from "../../@types/ui";
+import { InputProps } from "@/components/@types/ui";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 
 const Input = ({
@@ -18,7 +18,7 @@ const Input = ({
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full my-1">
       <input
         type={isPasswordVisible ? "text" : type}
         name={name}
@@ -29,13 +29,13 @@ const Input = ({
 
       {type === "password" && (
         <span
-          className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
+          className="absolute right-4 top-1/2 cursor-pointer"
           onClick={handleShowPassword}
         >
           {isPasswordVisible ? (
-            <FaRegEye className="text-black" />
+            <FaRegEye className="text-[#C2C2C2]" />
           ) : (
-            <FaRegEyeSlash className="text-black" />
+            <FaRegEyeSlash className="text-[#C2C2C2]" />
           )}
         </span>
       )}
