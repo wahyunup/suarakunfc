@@ -1,4 +1,3 @@
-import { text } from "stream/consumers";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -12,11 +11,21 @@ export default {
       colors: {
         primary: "#345FCB",
         secondary: "#DF3434",
+        placeholder: "#C2C2C2"
       },
       fontSize: {
         heading1: "100px",
+        font__placeholder: "12px"
       },
-      
+      backgroundColor: {
+        input__primary: "#FFFFFF",
+      },
+      borderRadius: {
+        input__radius: "10px",
+      },
+      borderColor: {
+        input__primary: "#E8E8E8",
+      },
     },
   },
   plugins: [],
