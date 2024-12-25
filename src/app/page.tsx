@@ -10,9 +10,9 @@ export default function Home() {
         placeholder="Password"
       />
       <Button
-        className="p-4 mt-3 w-full"
+        className=""
         background="primary"
-        size="medium"
+        size="verysmall"
         shadow
       >
         Masuk

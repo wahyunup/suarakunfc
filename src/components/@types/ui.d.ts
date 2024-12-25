@@ -1,7 +1,7 @@
 export interface ButtonProps {
    children: React.ReactNode;
    background: "primary" | "secondary" | "accent";
-   size: "small" | "medium" | "large";
+   size: "small" | "medium" | "large" | "verysmall";
    shadow?: boolean;
    icon?: JSX.Element;
    iconPosition?: "left" | "right";
