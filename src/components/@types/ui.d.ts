@@ -1,11 +1,12 @@
 export interface ButtonProps {
    children: React.ReactNode;
-   background: "primary" | "secondary" | "accent";
-   size: "small" | "medium" | "large" | "verysmall";
+   background: "primary" | "secondary" | "accent" | "disabled";
+   size: "xsmall" | "small" | "medium" | "large";
    shadow?: boolean;
    icon?: JSX.Element;
    iconPosition?: "left" | "right";
    className?: string;
+   disabled?: boolean;
    onClick?: () => void;
 }
 

@@ -12,7 +12,7 @@ export default function Home() {
       <Button
         className=""
         background="primary"
-        size="verysmall"
+        size="xsmall"
         shadow
       >
         Masuk

@@ -11,7 +11,8 @@ export default {
       colors: {
         primary: "#345FCB",
         secondary: "#DF3434",
-        placeholder: "#C2C2C2"
+        disabled: "#7B849B",
+        placeholder: "#C2C2C2",
       },
       fontSize: {
         heading1: "100px",

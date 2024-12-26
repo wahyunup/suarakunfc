@@ -26,9 +26,9 @@ const LoginForm = () => {
         className="mt-3"
       />
       <Button
-        className="p-4 mt-3 w-full"
+        className="w-full"
         background="primary"
-        size="medium"
+        size="large"
         shadow
       >
         Masuk
