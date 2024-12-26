@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { InputProps } from "@/components/@types/ui";
-// import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 
 const Input = ({
   name,
@@ -32,11 +32,11 @@ const Input = ({
           className="absolute right-4 top-1/2 cursor-pointer"
           onClick={handleShowPassword}
         >
-          {/* {isPasswordVisible ? (
+          {isPasswordVisible ? (
             <FaRegEye className="text-[#C2C2C2]" />
           ) : (
             <FaRegEyeSlash className="text-[#C2C2C2]" />
-          )} */}
+          )}
         </span>
       )}
     </div>
