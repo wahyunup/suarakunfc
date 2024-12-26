@@ -29,7 +29,7 @@ const Input = ({
 
       {type === "password" && (
         <span
-          className="absolute right-4 top-1/2 cursor-pointer"
+          className="absolute right-2 top-1/2 cursor-pointer"
           onClick={handleShowPassword}
         >
           {isPasswordVisible ? (

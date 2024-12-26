@@ -1,7 +1,15 @@
 "use client";
 
-import { Input, Button } from "@/components/ui";
+import { Input, Button, Select } from "@/components/ui";
 import { handleNumberChange } from "@/utils/handleChange";
+
+const items = [
+  { value: "apple", label: "Apple" },
+  { value: "banana", label: "Banana" },
+  { value: "blueberry", label: "Blueberry" },
+  { value: "grapes", label: "Grapes" },
+  { value: "pineapple", label: "Pineapple" },
+];
 
 const LoginForm = () => {
   return (
@@ -25,12 +33,13 @@ const LoginForm = () => {
         placeholder="Password"
         className="mt-3"
       />
-      <Button
-        className="w-full"
-        background="primary"
-        size="large"
-        shadow
-      >
+      <Select
+        placeholder="Pilih Provinsi"
+        items={items}
+        // onSelect={handleSelect}
+        className="mt-3"
+      />
+      <Button className="w-full mt-3" background="primary" size="large" shadow>
         Masuk
       </Button>
     </>
