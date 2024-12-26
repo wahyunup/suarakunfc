@@ -10,10 +10,11 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex items-center flex-col justify-center h-screen">
       <Image
-        src="/next.svg"
+        src="/images/suaraku_logo.png"
         alt="Logo"
-        width={100}
-        height={100}
+        width={193}
+        height={54}
+        className="w-full max-w-[193px]"
       />
 
       {children}
