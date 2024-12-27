@@ -14,7 +14,7 @@ const Layout = ({ children, heading, subHeading }: LayoutProps) => {
           <h1 className="font-bold text-[20px]">{heading}</h1>
           {children}
         </div>
-          <p>{!subHeading ? 'Belum memiliki akun?' : 'Sudah memiliki akun?' }<span className="text-primary"> {!subHeading ? 'Daftar' : 'Masuk'}</span></p>
+          <p>{!subHeading ? 'Belum memiliki akun?' : 'Sudah memiliki akun?' }<a href="" className="text-primary"> {!subHeading ? 'Daftar' : 'Masuk'}</a></p>
       </section>
     </>
   );
