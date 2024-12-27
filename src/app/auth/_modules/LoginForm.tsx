@@ -15,7 +15,7 @@ const items = [
 const LoginForm = () => {
   return (
     <>
-    <Layout heading="Masuk" subHeading={false}>
+    <Layout hasAcc={false}>
       <Input name="nik" placeholder="Nomer Induk Kependudukan (NIK)" type="number"/>
       <Input name="numHp" placeholder="Nomer Handphone" type="number" />
       <Input name="password" placeholder="Password" type="password" />

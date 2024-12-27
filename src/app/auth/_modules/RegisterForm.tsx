@@ -25,7 +25,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <Layout heading="Daftar" subHeading={true}>
+      <Layout hasAcc={true}>
         <Input name="nik" placeholder="Nomer Induk Kependudukan (NIK)" type="number"/>
         <Input name="numHp" placeholder="Nomer Handphone" type="number" />
         <Input name="password" placeholder="Password" type="password" />

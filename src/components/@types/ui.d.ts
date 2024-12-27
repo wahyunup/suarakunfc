@@ -36,3 +36,8 @@ export interface SelectProps {
   placeholder?: string;
   onSelect?: (value: string) => void;
 }
+
+export interface LayoutProps {
+  children: React.ReactNode;
+  hasAcc: boolean;
+}
