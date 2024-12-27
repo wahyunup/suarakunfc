@@ -23,3 +23,16 @@ export interface LabelProps {
   label: string;
   className?: string;
 }
+
+interface SelectItem {
+  value: string;
+  label: string;
+};
+
+export interface SelectProps {
+  items: SelectItem[];
+  className?: string;
+  label?: string;
+  placeholder?: string;
+  onSelect?: (value: string) => void;
+}
