@@ -1,8 +1,16 @@
 "use client";
 
-import { Input, Button } from "@/components/ui";
+import { Input, Button, Select } from "@/components/ui";
 import { handleNumberChange } from "@/utils/handleChange";
 import Layout from "@/app/auth/_template/authlayout";
+
+const items = [
+  { value: "apple", label: "Apple" },
+  { value: "banana", label: "Banana" },
+  { value: "blueberry", label: "Blueberry" },
+  { value: "grapes", label: "Grapes" },
+  { value: "pineapple", label: "Pineapple" },
+];
 
 const LoginForm = () => {
   return (
