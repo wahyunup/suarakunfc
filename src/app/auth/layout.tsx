@@ -8,14 +8,7 @@ export const metadata: Metadata = {
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex items-center flex-col justify-center h-screen">
-      <Image
-        src="/next.svg"
-        alt="Logo"
-        width={100}
-        height={100}
-      />
-
+    <div className="flex items-center flex-col justify-center h-screen gap-[52px]">
       {children}
     </div>
   );
