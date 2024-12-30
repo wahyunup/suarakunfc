@@ -1,27 +1,32 @@
 "use client";
 
-import { Input, Button, Select } from "@/components/ui";
+import { Input, Button } from "@/components/ui";
 import { handleNumberChange } from "@/utils/handleChange";
-import Layout from "@/app/auth/_template/authlayout";
-
-const items = [
-  { value: "apple", label: "Apple" },
-  { value: "banana", label: "Banana" },
-  { value: "blueberry", label: "Blueberry" },
-  { value: "grapes", label: "Grapes" },
-  { value: "pineapple", label: "Pineapple" },
-];
+import AuthTemplate from "../_template/AuthTemplate";
 
 const LoginForm = () => {
   return (
-    <>
-    <Layout hasAcc={false}>
-      <Input name="nik" placeholder="Nomer Induk Kependudukan (NIK)" type="number"/>
-      <Input name="numHp" placeholder="Nomer Handphone" type="number" />
-      <Input name="password" placeholder="Password" type="password" />
-      <Button background="primary" shadow size="large">Masuk</Button>
-    </Layout>
-    </>
+    <AuthTemplate hasAcc={false}>
+      <Input
+        name="nik"
+        placeholder="Nomer Induk Kependudukan (NIK)"
+        type="text"
+      />
+      <Input
+        name="numHp"
+        placeholder="Nomor Handphone"
+        type="text"
+        onChange={(event) => handleNumberChange({ event })}
+      />
+      <Input
+        name="password"
+        placeholder="Password"
+        type="password"
+      />
+      <Button background="primary" shadow size="large">
+        Masuk
+      </Button>
+    </AuthTemplate>
   );
 };
 
