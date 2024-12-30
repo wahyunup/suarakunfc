@@ -1,7 +1,7 @@
 "use client";
 
-import Layout from "../_template/authlayout";
-import { Button, Input, Select} from "@/components/ui";
+import AuthTemplate from "../_template/AuthTemplate";
+import { Button, Input, Select } from "@/components/ui";
 
 const RegisterForm = () => {
   const kecamatan = [
@@ -24,20 +24,25 @@ const RegisterForm = () => {
   ];
 
   return (
-    <>
-      <Layout hasAcc={true}>
-        <Input name="nik" placeholder="Nomer Induk Kependudukan (NIK)" type="number"/>
-        <Input name="numHp" placeholder="Nomer Handphone" type="number" />
-        <Input name="password" placeholder="Password" type="password" />
-        <Input name="rePassword" placeholder="Re-Password" type="password" />
-        <Input name="address" placeholder="Alamat" type="text" />
+    <AuthTemplate hasAcc={true}>
+      <Input
+        name="nik"
+        placeholder="Nomer Induk Kependudukan (NIK)"
+        type="number"
+      />
+      
+      <Input name="numHp" placeholder="Nomer Handphone" type="text" />
+      <Input name="password" placeholder="Password" type="password" />
+      <Input name="rePassword" placeholder="Re-Password" type="password" />
+      <Input name="address" placeholder="Alamat" type="text" />
 
-        <Select placeholder="Provinsi" items={provinsi}/>
-        <Select placeholder="Kota" items={kota}/>
-        <Select placeholder="Kecamatan" items={kecamatan}/>
-        <Button background="primary" shadow size="large">Lanjutkan</Button>
-      </Layout>
-    </>
+      <Select placeholder="Provinsi" items={provinsi} />
+      <Select placeholder="Kota" items={kota} />
+      <Select placeholder="Kecamatan" items={kecamatan} />
+      <Button background="primary" shadow size="large">
+        Lanjutkan
+      </Button>
+    </AuthTemplate>
   );
 };
 
