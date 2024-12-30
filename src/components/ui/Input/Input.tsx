@@ -18,7 +18,7 @@ const Input = ({
   };
 
   return (
-    <div className="relative w-full my-1">
+    <div className="relative w-full">
       <input
         type={isPasswordVisible ? "text" : type}
         name={name}
@@ -29,7 +29,7 @@ const Input = ({
 
       {type === "password" && (
         <span
-          className="absolute right-2 top-1/2 cursor-pointer"
+          className="absolute right-4 top-1/3 cursor-pointer"
           onClick={handleShowPassword}
         >
           {isPasswordVisible ? (

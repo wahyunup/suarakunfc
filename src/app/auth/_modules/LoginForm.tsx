@@ -2,6 +2,7 @@
 
 import { Input, Button, Select } from "@/components/ui";
 import { handleNumberChange } from "@/utils/handleChange";
+import Layout from "@/app/auth/_template/authlayout";
 
 const items = [
   { value: "apple", label: "Apple" },
@@ -14,34 +15,12 @@ const items = [
 const LoginForm = () => {
   return (
     <>
-      <Input
-        name="text"
-        type="text"
-        placeholder="Nomor Induk Kependudukan (NIK)"
-        onChange={(event) => handleNumberChange({ event })}
-      />
-      <Input
-        name="text"
-        type="text"
-        placeholder="Nomor Handphone"
-        onChange={(event) => handleNumberChange({ event })}
-        className="mt-3"
-      />
-      <Input
-        name="password"
-        type="password"
-        placeholder="Password"
-        className="mt-3"
-      />
-      <Select
-        placeholder="Pilih Provinsi"
-        items={items}
-        // onSelect={handleSelect}
-        className="mt-3"
-      />
-      <Button className="w-full mt-3" background="primary" size="large" shadow>
-        Masuk
-      </Button>
+    <Layout hasAcc={false}>
+      <Input name="nik" placeholder="Nomer Induk Kependudukan (NIK)" type="number"/>
+      <Input name="numHp" placeholder="Nomer Handphone" type="number" />
+      <Input name="password" placeholder="Password" type="password" />
+      <Button background="primary" shadow size="large">Masuk</Button>
+    </Layout>
     </>
   );
 };

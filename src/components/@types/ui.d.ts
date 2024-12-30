@@ -1,13 +1,14 @@
+import React from "react";
+
 export interface ButtonProps {
-  children: React.ReactNode;
-  background: "primary" | "secondary" | "accent" | "disabled";
-  size: "xsmall" | "small" | "medium" | "large";
-  shadow?: boolean;
-  icon?: JSX.Element;
-  iconPosition?: "left" | "right";
-  className?: string;
-  disabled?: boolean;
-  onClick?: () => void;
+   children: React.ReactNode;
+   background: "primary" | "secondary" | "accent";
+   size: "small" | "medium" | "large" | "verysmall";
+   shadow?: boolean;
+   icon?: JSX.Element;
+   iconPosition?: "left" | "right";
+   className?: string;
+   onClick?: () => void;
 }
 
 export interface InputProps {
@@ -34,4 +35,9 @@ export interface SelectProps {
   label?: string;
   placeholder?: string;
   onSelect?: (value: string) => void;
+}
+
+export interface LayoutProps {
+  children: React.ReactNode;
+  hasAcc: boolean;
 }
