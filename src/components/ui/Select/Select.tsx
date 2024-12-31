@@ -4,23 +4,34 @@ import React, { useState } from "react";
 import { SelectProps } from "@/components/@types/ui";
 import { clsx } from "clsx";
 
-const Select = ({ className, items, label, placeholder, onSelect  }: SelectProps) => {
+const Select = ({
+  className,
+  items,
+  label,
+  placeholder,
+  ref,
+  onSelect,
+}: SelectProps) => {
   const [selectedValue, setSelectedValue] = useState<string>("");
+  const [selectedLabel, setSelectedLabel] = useState<string>(placeholder || "");
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleSelect = (value: string) => {
-    setSelectedValue(value);
+  const handleSelect = (item: { id: string; value: string; label: string }) => {
+    setSelectedValue(item.value);
+    setSelectedLabel(item.label);
     setIsOpen(false);
     if (onSelect) {
-      onSelect(value);
+      onSelect(item);
     }
   };
 
   return (
-    <div className={clsx("relative inline-block w-full", className)}>
-      {label && <label className="block mb-1 text-sm font-medium">{label}</label>}
+    <div className={clsx("relative inline-block w-full", className)} ref={ref}>
+      {label && (
+        <label className="block mb-1 text-sm font-medium">{label}</label>
+      )}
       <button
         onClick={toggleDropdown}
         className={clsx(
@@ -28,8 +39,9 @@ const Select = ({ className, items, label, placeholder, onSelect  }: SelectProps
           "border-input__primary rounded-input__radius bg-input__primary",
           "flex justify-between items-center outline-none text-font__placeholder text-placeholder"
         )}
+        type="button"
       >
-        <span>{selectedValue || placeholder}</span>
+        <span>{selectedLabel}</span>
         <svg
           className={clsx("w-4 h-4 transform transition-transform", {
             "rotate-180": isOpen,
@@ -49,21 +61,22 @@ const Select = ({ className, items, label, placeholder, onSelect  }: SelectProps
       </button>
       {isOpen && (
         <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
-          {items.map((item) => (
-            <li
-              key={item.value}
-              onClick={() => handleSelect(item.value)}
-              className={clsx("px-4 py-2 cursor-pointer hover:bg-blue-100", {
-                "bg-blue-50": selectedValue === item.value,
-              })}
-            >
-              {item.label}
-            </li>
-          ))}
+          {items &&
+            items?.map((item) => (
+              <li
+                key={`${item.id}-${item.value}`}
+                onClick={() => handleSelect(item)}
+                className={clsx("px-4 py-2 cursor-pointer hover:bg-blue-100", {
+                  "bg-blue-50": selectedValue === item.value,
+                })}
+              >
+                {item.label}
+              </li>
+            ))}
         </ul>
       )}
     </div>
   );
-}
+};
 
 export default Select;

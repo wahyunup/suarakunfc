@@ -17,4 +17,6 @@ export const handleNumberChange = ({ event, validate }: HandleChangeOptions) => 
   if (validate && !validate(numericValue)) {
     return;
   }
+
+  return numericValue;
 };

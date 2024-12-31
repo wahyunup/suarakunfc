@@ -1,4 +1,4 @@
-import { AuthTemplateProps } from "../@types/auth";
+import { AuthTemplateProps } from "../_types/auth";
 import Link from "next/link";
 import Image from "next/image";
 

@@ -8,7 +8,9 @@ const Input = ({
   name,
   placeholder,
   type,
+  ref,
   className,
+  error,
   onChange,
 }: InputProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -22,10 +24,15 @@ const Input = ({
       <input
         type={isPasswordVisible ? "text" : type}
         name={name}
+        ref={ref}
         placeholder={placeholder}
         onChange={onChange}
         className={`bg-input__primary rounded-input__radius w-full border-input__primary border h-[44px] text-font__placeholder px-2 outline-none placeholder:text-placeholder ${className}`}
       />
+
+      {error && (
+        <span className="text-red-500 text-sm font-bold">{error}</span>
+      )}
 
       {type === "password" && (
         <span
