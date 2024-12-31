@@ -10,6 +10,7 @@ const Button = ({
   iconPosition = "left",
   background = "primary",
   size = "medium",
+  type = "button",
   disabled
 }: ButtonProps) => {
   return (
@@ -33,6 +34,7 @@ const Button = ({
         )}
         onClick={onClick}
         disabled={disabled}
+        type={type}
       >
         {icon && iconPosition === "left" && icon}
         {children}
