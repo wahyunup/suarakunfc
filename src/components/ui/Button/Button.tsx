@@ -21,14 +21,15 @@ const Button = ({
           {
             "bg-primary text-white": background === "primary",
             "bg-secondary text-white": background === "secondary",
-            "bg-transparent border border-gray-200": background === "accent",
+            "bg-white text-primary rounded-md": background === "accent",
+            "bg-transparent border border-white text-white": background === "transparent",
             "bg-disabled text-white cursor-not-allowed": background === "disabled",
             "shadow-button__shadow": shadow,
             "flex items-center justify-center gap-2": icon,
-            "w-width__l h-height__l": size === "large",
-            "w-width__m h-height__m": size === "medium",
-            "w-width__s h-height__s": size === "small",
-            "w-width__xs h-height__xs": size === "xsmall",
+            "px-1 py-0.5 text-xs": size === "xsmall",
+            "px-2 py-1 text-sm": size === "small",
+            "px-4 py-2 text-base": size === "medium",
+            "px-6 py-3 text-lg": size === "large",
           },
           className
         )}
