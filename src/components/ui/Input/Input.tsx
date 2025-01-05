@@ -11,7 +11,6 @@ const Input = ({
   type,
   ref,
   className,
-  isPhoneNumber,
   error,
   onChange,
 }: InputProps) => {
@@ -25,16 +24,9 @@ const Input = ({
     <div
       className={clsx(
         "relative w-full",
-        { "flex items-center gap-1": isPhoneNumber },
         className
       )}
     >
-      {isPhoneNumber && (
-        <span className="border-input__primary border px-3 h-[44px] rounded-input__radius text-font__placeholder flex items-center">
-          +62
-        </span>
-      )}
-
       <input
         type={isPasswordVisible ? "text" : type}
         name={name}
