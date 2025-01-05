@@ -2,7 +2,7 @@
 
 import AuthTemplate from "../_template/AuthTemplate";
 import { Button, Input, Select } from "@/components/ui";
-import { handleNumberChange } from "@/utils/handleChange";
+import { handlePhoneNumberChange, handleNumberChange } from "@/utils/handleChange";
 import { useAuth } from "../_hooks/useAuth";
 import { useRegion } from "@/app/hooks/useRegion";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
@@ -22,7 +22,6 @@ interface FormInputs extends RegisterPayload {
 
 const RegisterForm = () => {
   const { registerMutation } = useAuth();
-
   const { provincesQuery, useCitiesByProvince, useDistrictsByCity } =
     useRegion();
 
@@ -83,10 +82,10 @@ const RegisterForm = () => {
       <Input
         {...register("mu_nik", {
           required: "NIK wajib diisi",
-          // Gunakan "onChange" untuk memanggil handleNumberChange
-          // handleNumberChange dipanggil dengan parameter "event" seperti ini:
-          // - handleNumberChange memfilter input agar hanya menerima angka
-          // - Nilai numeric yang dihasilkan dari handleNumberChange diteruskan kembali ke e.target.value
+          // Gunakan "onChange" untuk memanggil handlePhoneNumberChange
+          // handlePhoneNumberChange dipanggil dengan parameter "event" seperti ini:
+          // - handlePhoneNumberChange memfilter input agar hanya menerima angka
+          // - Nilai numeric yang dihasilkan dari handlePhoneNumberChange diteruskan kembali ke e.target.value
           // - Ini memastikan bahwa react-hook-form tetap menyinkronkan nilai input dengan form state
           onChange: (e) => {
             const numericValue = handleNumberChange({ event: e });
@@ -103,12 +102,12 @@ const RegisterForm = () => {
         {...register("mu_phoneNumber", {
           required: "Nomor Handphone wajib diisi",
           onChange: (e) => {
-            const numericValue = handleNumberChange({ event: e });
+            const numericValue = handlePhoneNumberChange({ event: e });
             e.target.value = numericValue;
           },
         })}
         name="mu_phoneNumber"
-        placeholder="Nomer Handphone"
+        placeholder="Nomor Handphone"
         type="text"
         error={errors.mu_phoneNumber?.message}
       />
