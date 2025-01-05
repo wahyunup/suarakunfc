@@ -3,11 +3,15 @@ import { HandleChangeOptions}  from "./@types/options";
 /**
  * Mengelola perubahan input yang hanya mengizinkan karakter angka.
  */
-export const handleNumberChange = ({ event, validate }: HandleChangeOptions) => {
+export const handlePhoneNumberChange = ({ event, validate }: HandleChangeOptions) => {
   const input = event.target;
   const value = input.value;
 
   const numericValue = value.replace(/[^0-9]/g, "");
+
+  if (numericValue.length > 0 && numericValue[0] === '0') {
+    return null;
+  }
 
   if (value !== numericValue) {
     input.value = numericValue;
@@ -20,3 +24,11 @@ export const handleNumberChange = ({ event, validate }: HandleChangeOptions) => 
 
   return numericValue;
 };
+
+export const handleNumberChange = ({ event }: HandleChangeOptions) => {
+  const value = event.target.value;
+
+  if (!/^\d*$/.test(value)) return null;
+
+  return value;
+}

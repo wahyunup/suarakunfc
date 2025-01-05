@@ -1,7 +1,7 @@
 "use client";
 
 import { Input, Button } from "@/components/ui";
-import { handleNumberChange } from "@/utils/handleChange";
+import { handlePhoneNumberChange } from "@/utils/handleChange";
 import AuthTemplate from "../_template/AuthTemplate";
 
 const LoginForm = () => {
@@ -13,10 +13,10 @@ const LoginForm = () => {
         type="text"
       />
       <Input
-        name="numHp"
+        name="phoneNumber"
         placeholder="Nomor Handphone"
         type="text"
-        onChange={(event) => handleNumberChange({ event })}
+        onChange={(event) => handlePhoneNumberChange({ event })}
       />
       <Input
         name="password"
