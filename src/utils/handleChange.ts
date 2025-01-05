@@ -9,9 +9,9 @@ export const handlePhoneNumberChange = ({ event, validate }: HandleChangeOptions
 
   const numericValue = value.replace(/[^0-9]/g, "");
 
-  if (numericValue.length > 0 && numericValue[0] === '0') {
-    return null;
-  }
+  // if (numericValue.length > 0 && numericValue[0] === '0') {
+  //   return null;
+  // }
 
   if (value !== numericValue) {
     input.value = numericValue;

@@ -109,9 +109,7 @@ const RegisterForm = () => {
         name="mu_phoneNumber"
         placeholder="Nomor Handphone"
         type="text"
-        value="+62"
         error={errors.mu_phoneNumber?.message}
-        isPhoneNumber
       />
 
       <Input

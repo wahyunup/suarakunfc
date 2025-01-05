@@ -18,7 +18,6 @@ export interface InputProps {
   placeholder: string;
   type: string;
   name: string;
-  isPhoneNumber?: boolean;
   value?: string;
   error?: string;
   className?: string;
