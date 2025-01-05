@@ -21,6 +21,9 @@ export default {
       backgroundColor: {
         input__primary: "#FFFFFF",
       },
+      backgroundImage: {
+        "menu-pattern": "url('/images/background_pattern.png')",
+      },
       borderRadius: {
         input__radius: "10px",
         button__radius: "10px",

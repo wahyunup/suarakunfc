@@ -4,7 +4,7 @@ import { ChangeHandler } from "react-hook-form";
 export interface ButtonProps {
   children: React.ReactNode;
   type?: "button" | "submit" | "reset";
-  background: "primary" | "secondary" | "accent" | "disabled";
+  background: "primary" | "secondary" | "accent" | "disabled" | "transparent";
   size: "xsmall" | "small" | "medium" | "large";
   shadow?: boolean;
   icon?: JSX.Element;
