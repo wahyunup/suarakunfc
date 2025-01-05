@@ -28,7 +28,7 @@ const Button = ({
             "w-width__l h-height__l": size === "large",
             "w-width__m h-height__m": size === "medium",
             "w-width__s h-height__s": size === "small",
-            "w-width__xs h-height__xs": size === "xsmall",
+            "w-width__xs h-height__xs": size === "xsmall",  
           },
           className
         )}
