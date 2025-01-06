@@ -1,23 +1,17 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useMutation } from "@tanstack/react-query";
-import { RegisterPayload } from "../_types/auth";
+import { RegisterPayload, LoginPayload } from "../_types/auth";
 import { registerApi } from "../_api/auth";
 
 export const useAuth = () => {
   const { data: session, status } = useSession();
 
   const loginMutation = useMutation({
-    mutationFn: async ({
-      username,
-      password,
-    }: {
-      username: string;
-      password: string;
-    }) => {
+    mutationFn: async ({ mu_nik, mu_password }: LoginPayload) => {
       const result = await signIn("credentials", {
         redirect: false,
-        username,
-        password,
+        mu_nik,
+        mu_password,
       });
 
       if (result?.error) {
@@ -31,7 +25,6 @@ export const useAuth = () => {
   const registerMutation = useMutation({
     mutationFn: async (data: RegisterPayload) => {
       const result = await registerApi(data);
-      console.log(result, "<---- result");
       return result;
     },
   });

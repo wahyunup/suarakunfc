@@ -12,3 +12,8 @@ export interface RegisterPayload {
   mu_city: string;
   mu_district: string;
 }
+
+export interface LoginPayload {
+  mu_nik: string;
+  mu_password: string;
+}
