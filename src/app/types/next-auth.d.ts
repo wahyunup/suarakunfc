@@ -5,6 +5,11 @@ declare module "next-auth" {
     user?: {
       accessToken?: string;
     } & DefaultSession["user"];
+    accessToken?: string;
+  }
+
+  interface User {
+    accessToken?: string;
   }
 }
 

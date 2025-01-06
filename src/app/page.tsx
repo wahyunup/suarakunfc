@@ -3,8 +3,11 @@
 import Image from "next/image";
 import { Button } from "@/components/ui";
 import SplashTemplate from "./template/SplashTemplate";
+import { useRouter } from "next/navigation";
 
 const HomePage = () => {
+  const router = useRouter();
+
   return (
     <SplashTemplate>
       <Image
@@ -18,10 +21,9 @@ const HomePage = () => {
         <Button
           size="medium"
           background="accent"
-          onClick={() => {
-            window.location.href = "/auth/login";
-          }}
+          onClick={() => {}}
           className="w-1/2"
+          shadow
         >
           NFC
         </Button>
@@ -29,9 +31,7 @@ const HomePage = () => {
         <Button
           size="medium"
           background="transparent"
-          onClick={() => {
-            window.location.href = "/auth/login";
-          }}
+          onClick={() => router.push("/auth/login")}
           className="w-1/2"
         >
           Masuk

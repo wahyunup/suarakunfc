@@ -1,9 +1,8 @@
 import { NextAuthOptions } from "next-auth";
 
 export interface Credentials {
-  nik: string;
-  phoneNumber: string;
-  password: string;
+  mu_nik: string;
+  mu_password: string;
 }
 
 export type AuthOptions = NextAuthOptions;
