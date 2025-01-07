@@ -39,8 +39,6 @@ const LoginForm = () => {
           title: "Oops!",
           message: `Login gagal: ${(error as Error).message}`,
         });
-        alert("Login berhasil!");
-        router.push("/dashboard");
       },
     });
   };
