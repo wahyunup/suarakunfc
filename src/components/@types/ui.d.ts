@@ -52,3 +52,11 @@ export interface UserCardProps {
   noTelp : number;
   mu_nik : string;
 }
+
+export interface PopupProps {
+  type? : "success" | "error" | "warning";
+  title? : string;
+  message? : string; 
+  onClose? : () => void;
+  onAction? : () => void;
+}

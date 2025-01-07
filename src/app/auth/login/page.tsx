@@ -1,4 +1,4 @@
-import PopUp from "@/components/modal/PopUp";
+import PopUp from "@/components/ui/modal/PopUp";
 import LoginForm from "../_modules/LoginForm";
 
 const LoginPage = () => {
