@@ -25,6 +25,7 @@ const DashboardPage = () => {
           username={data.username}
         />
       ))}
+      
       <h1>Dashboard</h1>
     </div>
   );

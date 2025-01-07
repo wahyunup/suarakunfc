@@ -5,6 +5,7 @@ import { LoginPayload } from "../_types/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Input, Button } from "@/components/ui";
 import { useRouter } from "next/navigation";
+
 import { handleNumberChange } from "@/utils/handleChange";
 import AuthTemplate from "../_template/AuthTemplate";
 import PopUp from "@/components/ui/modal/PopUp";
@@ -38,6 +39,8 @@ const LoginForm = () => {
           title: "Oops!",
           message: `Login gagal: ${(error as Error).message}`,
         });
+        alert("Login berhasil!");
+        router.push("/dashboard");
       },
     });
   };
@@ -57,18 +60,28 @@ const LoginForm = () => {
         type="text"
         error={errors.mu_nik?.message}
       />
+      
+      {/* <Input
+        name="phoneNumber"
+        placeholder="Nomor Handphone"
+        type="text"
+        onChange={(event) => handlePhoneNumberChange({ event })}
+      /> */}
+      
       <Input
         {...register("mu_password", { required: true })}
         name="mu_password"
         placeholder="Password"
         type="password"
       />
+      
       <Button
         background="primary"
         shadow
         size="large"
         type="submit"
-        onClick={handleSubmit(onSubmit)}>
+        onClick={handleSubmit(onSubmit)}
+      >
         Masuk
       </Button>
 
