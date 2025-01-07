@@ -5,7 +5,7 @@ export interface ButtonProps {
   children: React.ReactNode;
   type?: "button" | "submit" | "reset";
   background: "primary" | "secondary" | "accent" | "disabled" | "transparent";
-  size: "xsmall" | "small" | "medium" | "large";
+  size?: "xsmall" | "small" | "medium" | "large";
   shadow?: boolean;
   icon?: JSX.Element;
   iconPosition?: "left" | "right";
@@ -46,3 +46,9 @@ export interface SelectProps {
   onSelect?: (item: SelectItem) => void;
 }
 
+export interface UserCardProps {
+  userImage : string;
+  username : string;
+  noTelp : number;
+  mu_nik : string;
+}

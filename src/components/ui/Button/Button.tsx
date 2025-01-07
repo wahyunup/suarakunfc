@@ -9,7 +9,7 @@ const Button = ({
   icon,
   iconPosition = "left",
   background = "primary",
-  size = "medium",
+  size,
   type = "button",
   disabled
 }: ButtonProps) => {
