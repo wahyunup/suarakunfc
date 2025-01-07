@@ -5,14 +5,17 @@ import { LoginPayload } from "../_types/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Input, Button } from "@/components/ui";
 import { useRouter } from "next/navigation";
-// import { handlePhoneNumberChange } from "@/utils/handleChange";
-import AuthTemplate from "../_template/AuthTemplate";
+
 import { handleNumberChange } from "@/utils/handleChange";
+import AuthTemplate from "../_template/AuthTemplate";
+import PopUp from "@/components/ui/modal/PopUp";
+import { useState } from "react";
+import {PopupProps} from "@/components/@types/ui"
 
 const LoginForm = () => {
   const { loginMutation } = useAuth();
-
   const router = useRouter();
+  const [popUpData, setPopUpData] = useState<PopupProps | null>(null);
 
   const {
     register,
@@ -23,12 +26,21 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginPayload> = (data) => {
     loginMutation.mutate(data, {
       onSuccess: () => {
-        alert("Login berhasil!");
-        router.push("/dashboard");
+        setPopUpData({
+          type: "success",
+          title: "Success!",
+          message: "Login berhasil!",
+        });
+        // setTimeout(() => router.push("/dashboard"), 2000); // Redirect setelah 2 detik
       },
       onError: (error) => {
-        alert(`Login gagal: ${(error as Error).message}`);
-        console.log(error);
+        setPopUpData({
+          type: "error",
+          title: "Oops!",
+          message: `Login gagal: ${(error as Error).message}`,
+        });
+        alert("Login berhasil!");
+        router.push("/dashboard");
       },
     });
   };
@@ -48,18 +60,21 @@ const LoginForm = () => {
         type="text"
         error={errors.mu_nik?.message}
       />
+      
       {/* <Input
         name="phoneNumber"
         placeholder="Nomor Handphone"
         type="text"
         onChange={(event) => handlePhoneNumberChange({ event })}
       /> */}
+      
       <Input
         {...register("mu_password", { required: true })}
         name="mu_password"
         placeholder="Password"
         type="password"
       />
+      
       <Button
         background="primary"
         shadow
@@ -69,6 +84,17 @@ const LoginForm = () => {
       >
         Masuk
       </Button>
+
+      {/* Render PopUp jika popUpData ada */}
+      {popUpData && (
+        <PopUp
+          type={popUpData.type}
+          title={popUpData.title}
+          message={popUpData.message}
+          onAction={() => router.push("/dashboard")}
+          onClose={() => setPopUpData(null)} // Menutup popup
+        />
+      )}
     </AuthTemplate>
   );
 };
