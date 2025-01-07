@@ -11,48 +11,38 @@ export const authOptions: AuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        nik: {
+        mu_nik: {
           label: "Nomer Induk Kependudukan (NIK)",
           type: "text",
-          name: "nik",
+          name: "mu_nik",
         },
-        phoneNumber: {
-          label: "Nomor Handphone",
-          type: "text",
-          name: "phoneNumber",
-        },
-        password: { label: "Password", type: "password", name: "password" },
+        mu_password: { label: "Password", type: "password", name: "mu_password" },
       },
 
       async authorize(credentials: Credentials | undefined) {
-        if (
-          !credentials?.nik ||
-          !credentials?.password ||
-          !credentials?.phoneNumber
-        ) {
+        if (!credentials?.mu_nik || !credentials?.mu_password) {
           return null;
         }
-        const res = await callSuarakuApi.post("/auth/login", credentials);
-        const user = await res.data;
-        if (user.token) {
-          return user;
-        } else {
+        try {
+          const res = await callSuarakuApi.post("/auth/login", credentials);
+          const user = res.data;
+
+          if (user.token) {
+            return { ...user, accessToken: user.token };
+          } else {
+            return null;
+          }
+        } catch (error) {
+          console.error("Login failed:", error);
           return null;
         }
       },
     }),
   ],
   callbacks: {
-    async session({ session, token }: { session: Session; token: JWT }) {
-      session.user = {
-        ...session.user,
-        accessToken: token.accessToken,
-      };
-      return session;
-    },
     async jwt({
       token,
-      account,
+      user,
     }: {
       token: JWT;
       user?: User | null;
@@ -60,10 +50,18 @@ export const authOptions: AuthOptions = {
       profile?: Profile;
       isNewUser?: boolean;
     }) {
-      if (account?.access_token) {
-        token.accessToken = account.access_token;
+      if (user?.accessToken) {
+        token.accessToken = user.accessToken;
       }
       return token;
+    },
+    
+    async session({ session, token }: { session: Session; token: JWT }) {
+      session.user = {
+        ...session.user,
+        accessToken: token.accessToken,
+      };
+      return session;
     },
   },
 };

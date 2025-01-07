@@ -24,7 +24,7 @@ const Button = ({
             "bg-white text-primary rounded-md": background === "accent",
             "bg-transparent border border-white text-white": background === "transparent",
             "bg-disabled text-white cursor-not-allowed": background === "disabled",
-            "shadow-button__shadow": shadow,
+            "shadow-button__shadow shadow-white": shadow,
             "flex items-center justify-center gap-2": icon,
             "px-1 py-0.5 text-xs": size === "xsmall",
             "px-2 py-1 text-sm": size === "small",
