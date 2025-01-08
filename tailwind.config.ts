@@ -46,8 +46,7 @@ export default {
         height__s:"44px",
         height__xs:"58px",
       },
-
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-motion')],
 } satisfies Config;
