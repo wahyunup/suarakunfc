@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui";
-import SplashTemplate from "./template/SplashTemplate";
+import SplashTemplate from "../template/SplashTemplate";
 import { useRouter } from "next/navigation";
 
 const HomePage = () => {
