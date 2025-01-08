@@ -32,7 +32,7 @@ const LoginForm = () => {
           message: "Login berhasil!",
         });
       },
-        
+
       onError: (error) => {
         setPopUpData({
           type: "error",
@@ -72,11 +72,12 @@ const LoginForm = () => {
           shadow
           size="large"
           type="submit"
-          onClick={handleSubmit(onSubmit)}>
+          onClick={handleSubmit(onSubmit)}
+        >
           Masuk
         </Button>
       </div>
-      
+
       {popUpData && (
         <PopUp
           type={popUpData.type}
