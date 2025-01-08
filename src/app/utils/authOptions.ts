@@ -25,10 +25,17 @@ export const authOptions: AuthOptions = {
         }
         try {
           const res = await callSuarakuApi.post("/auth/login", credentials);
-          const user = res.data;
+          const user = res.data.data;
 
           if (user.token) {
-            return { ...user, accessToken: user.token };
+            return { 
+              ...user, 
+              id: user.mu_id,
+              nik: user.mu_nik,
+              name: user.mu_fullname,
+              phoneNumber: user.mu_phoneNumber,
+              accessToken: user.token,
+            };
           } else {
             return null;
           }
@@ -52,6 +59,9 @@ export const authOptions: AuthOptions = {
     }) {
       if (user?.accessToken) {
         token.accessToken = user.accessToken;
+        token.nik = user.nik;
+        token.phoneNumber = user.phoneNumber;
+        token.name = user.name
       }
       return token;
     },
@@ -60,6 +70,9 @@ export const authOptions: AuthOptions = {
       session.user = {
         ...session.user,
         accessToken: token.accessToken,
+        nik: token.nik as string,
+        phoneNumber: token.phoneNumber as string,
+        name: token.name as string
       };
       return session;
     },

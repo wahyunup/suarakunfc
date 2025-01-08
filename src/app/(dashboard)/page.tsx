@@ -1,30 +1,26 @@
 "use client";
 
-import UserCard from "@/components/ui/Card/UserCard";
+import { useSession } from "next-auth/react";
+import UserCardSkeleton from "@/components/skeleton/Card/UserCardSkeleton";
+import dynamic from "next/dynamic";
+
+const UserCard = dynamic(() => import("@/components/ui/Card/UserCard"), {
+  ssr: false,
+  loading: () => <UserCardSkeleton />,
+});
 
 const DashboardPage = () => {
-  const dataUser = [
-    {
-      username: "AscenditCreative",
-      nik: "0987654321",
-      noTelp: "+621231123",
-      userImage:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoq0f1tSU2b8opZaApGh5tl2FreFb52dyo6Q&s",
-    }
-  ]
+  const { data: session } = useSession();
 
   return (
     <>
-      {dataUser.map((data, index) => (
-        <UserCard
-          key={index}
-          userImage={data.userImage}
-          mu_nik={data.nik}
-          noTelp={data.noTelp}
-          username={data.username}
-        />
-      ))}
-      
+      <UserCard
+        userImage={"/icon/icon-user.webp"}
+        mu_nik={session?.user?.nik as string}
+        noTelp={session?.user?.phoneNumber as string}
+        username={session?.user?.name as string}
+      />
+
       <h1>Dashboard</h1>
     </>
   );

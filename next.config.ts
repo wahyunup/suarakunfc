@@ -1,15 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "encrypted-tbn0.gstatic.com",
-        port: "",
-      }
-    ]
-  }
+  // Put the runtime in a variable so that it can be imported in pages/_app.tsx
 };
 
 export default nextConfig;
