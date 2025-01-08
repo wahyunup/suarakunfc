@@ -10,8 +10,8 @@ const DashboardPage = () => {
       noTelp: "+621231123",
       userImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoq0f1tSU2b8opZaApGh5tl2FreFb52dyo6Q&s",
-    },
-  ];
+    }
+  ]
 
   return (
     <>
@@ -24,6 +24,7 @@ const DashboardPage = () => {
           username={data.username}
         />
       ))}
+      
       <h1>Dashboard</h1>
     </>
   );
