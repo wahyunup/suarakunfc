@@ -49,7 +49,7 @@ export interface SelectProps {
 export interface UserCardProps {
   userImage : string;
   username : string;
-  noTelp : number;
+  noTelp : string;
   mu_nik : string;
 }
 

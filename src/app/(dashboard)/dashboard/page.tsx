@@ -7,14 +7,14 @@ const DashboardPage = () => {
     {
       username: "AscenditCreative",
       nik: "0987654321",
-      noTelp: +621231123,
+      noTelp: "+621231123",
       userImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoq0f1tSU2b8opZaApGh5tl2FreFb52dyo6Q&s",
     }
   ]
 
   return (
-    <div>
+    <>
       {dataUser.map((data, index) => (
         <UserCard
           key={index}
@@ -26,7 +26,7 @@ const DashboardPage = () => {
       ))}
       
       <h1>Dashboard</h1>
-    </div>
+    </>
   );
 };
 
