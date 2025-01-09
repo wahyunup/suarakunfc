@@ -51,6 +51,7 @@ export interface UserCardProps {
   username : string;
   noTelp : string;
   mu_nik : string;
+  src : SVGProps<SVGImageElement>
 }
 
 export interface PopupProps {
