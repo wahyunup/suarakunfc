@@ -11,6 +11,8 @@ export interface RegisterPayload {
   mu_province: string;
   mu_city: string;
   mu_district: string;
+  mu_fullname: string;
+  mu_blood_type: string;
 }
 
 export interface LoginPayload {
