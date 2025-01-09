@@ -4,12 +4,18 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user?: {
       accessToken?: string;
+      name?: string;
+      nik?: string;
+      phoneNumber?: string;
     } & DefaultSession["user"];
     accessToken?: string;
   }
 
   interface User {
     accessToken?: string;
+    name?: string;
+    nik?: string;
+    phoneNumber?: string;
   }
 }
 

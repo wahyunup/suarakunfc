@@ -32,7 +32,7 @@ const LoginForm = () => {
           message: "Login berhasil!",
         });
       },
-        
+
       onError: (error) => {
         setPopUpData({
           type: "error",
@@ -60,13 +60,6 @@ const LoginForm = () => {
           error={errors.mu_nik?.message}
         />
 
-        {/* <Input
-        name="phoneNumber"
-        placeholder="Nomor Handphone"
-        type="text"
-        onChange={(event) => handlePhoneNumberChange({ event })}
-      /> */}
-
         <Input
           {...register("mu_password", { required: true })}
           name="mu_password"
@@ -79,16 +72,18 @@ const LoginForm = () => {
           shadow
           size="large"
           type="submit"
-          onClick={handleSubmit(onSubmit)}>
+          onClick={handleSubmit(onSubmit)}
+        >
           Masuk
         </Button>
       </div>
+
       {popUpData && (
         <PopUp
           type={popUpData.type}
           title={popUpData.title}
           message={popUpData.message}
-          onAction={() => router.push("/dashboard")}
+          onAction={() => router.push("/")}
           onClose={() => setPopUpData(null)}
         />
       )}
