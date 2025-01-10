@@ -8,14 +8,12 @@ import { useRouter } from "next/navigation";
 
 import { handleNumberChange } from "@/utils/handleChange";
 import AuthTemplate from "../_template/AuthTemplate";
-import PopUp from "@/components/ui/modal/PopUp";
-import { useState } from "react";
-import { PopupProps } from "@/components/@types/ui";
+import { usePopup } from "@/context/PopupProvider";
 
 const LoginForm = () => {
   const { loginMutation } = useAuth();
   const router = useRouter();
-  const [popUpData, setPopUpData] = useState<PopupProps | null>(null);
+  const { showPopup } = usePopup();
 
   const {
     register,
@@ -26,15 +24,18 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginPayload> = (data) => {
     loginMutation.mutate(data, {
       onSuccess: () => {
-        setPopUpData({
+        showPopup({
           type: "success",
           title: "Success!",
           message: "Login berhasil!",
+          onAction: () => {
+            router.push("/");
+          },
         });
       },
 
       onError: (error) => {
-        setPopUpData({
+        showPopup({
           type: "error",
           title: "Oops!",
           message: `Login gagal: ${(error as Error).message}`,
@@ -44,7 +45,7 @@ const LoginForm = () => {
   };
 
   return (
-    <AuthTemplate hasAcc={false}>
+    <AuthTemplate hasAcc={false} isTitle isLinked>
       <div className="flex flex-col gap-2">
         <Input
           {...register("mu_nik", {
@@ -77,16 +78,6 @@ const LoginForm = () => {
           Masuk
         </Button>
       </div>
-
-      {popUpData && (
-        <PopUp
-          type={popUpData.type}
-          title={popUpData.title}
-          message={popUpData.message}
-          onAction={() => router.push("/")}
-          onClose={() => setPopUpData(null)}
-        />
-      )}
     </AuthTemplate>
   );
 };
