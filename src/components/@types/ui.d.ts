@@ -15,15 +15,20 @@ export interface ButtonProps {
 }
 
 export interface InputProps {
-  placeholder: string;
   type: string;
   name: string;
+  placeholder?: string;
   value?: string;
   error?: string;
   className?: string;
   ref?: React.forwardedRef<HTMLInputElement>;
   onBlur?: ChangeHandler;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface InputPinProps extends InputProps {
+  onComplete?: (pin: string[]) => void;
+  onChange: (pin: string) => void;
 }
 
 export interface LabelProps {

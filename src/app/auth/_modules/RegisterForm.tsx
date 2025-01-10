@@ -7,6 +7,8 @@ import { useAuth } from "../_hooks/useAuth";
 import { useRegion } from "@/app/hooks/useRegion";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { RegisterPayload } from "../_types/auth";
+import { usePopup } from "@/context/PopupProvider";
+import { useRouter } from "next/navigation";
 import {
   ProvincePayload,
   CityPayload,
@@ -24,6 +26,9 @@ const RegisterForm = () => {
   const { registerMutation } = useAuth();
   const { provincesQuery, useCitiesByProvince, useDistrictsByCity } =
     useRegion();
+
+  const { showPopup } = usePopup();
+  const router = useRouter();
 
   const {
     register,
@@ -67,18 +72,37 @@ const RegisterForm = () => {
       },
       {
         onSuccess: () => {
-          alert("Registrasi berhasil!");
+          showPopup({
+            type: "success",
+            title: "Success!",
+            message: "Registrasi berhasil! Tekan Oke agar dialihkan ke halaman login",
+            onAction: () => {
+              router.push("/auth/login");
+            },
+          });
         },
         onError: (error) => {
-          alert(`Registrasi gagal: ${(error as Error).message}`);
-          console.log(error);
+          showPopup({
+            type: "error",
+            title: "Oops!",
+            message: `Registrasi gagal: ${(error as Error).message}`,
+          })
+          console.log(error, "<--------- ERROR REGISTER");
         },
       }
     );
   };
 
   return (
-    <AuthTemplate hasAcc={true}>
+    <AuthTemplate hasAcc={true} isTitle isLinked>
+      <Input
+        {...register("mu_fullname", { required: "Nama wajib diisi" })}
+        name="mu_fullname"
+        placeholder="Nama Lengkap"
+        type="text"
+        error={errors.mu_fullname?.message}
+      />
+
       <Input
         {...register("mu_nik", {
           required: "NIK wajib diisi",
@@ -96,6 +120,14 @@ const RegisterForm = () => {
         placeholder="Nomor Induk Kependudukan (NIK)"
         type="text"
         error={errors.mu_nik?.message}
+      />
+
+      <Input
+        {...register("mu_blood_type", { required: "Golongan Darah wajib diisi" })}
+        name="mu_blood_type"
+        placeholder="Golongan Darah"
+        type="text"
+        error={errors.mu_blood_type?.message}
       />
 
       <Input
