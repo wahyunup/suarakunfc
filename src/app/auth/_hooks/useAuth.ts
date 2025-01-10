@@ -1,7 +1,7 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useMutation } from "@tanstack/react-query";
-import { RegisterPayload, LoginPayload } from "../_types/auth";
-import { registerApi } from "../_api/auth";
+import { RegisterPayload, LoginPayload, PinPayload } from "../_types/auth";
+import { registerApi, pinApi } from "../_api/auth";
 
 export const useAuth = () => {
   const { data: session, status } = useSession();
@@ -29,6 +29,13 @@ export const useAuth = () => {
     },
   });
 
+  const pinMutation = useMutation({
+    mutationFn: async (data: PinPayload) => {
+      const result = await pinApi(data);
+      return result;
+    },
+  });
+
   const logoutMutation = useMutation({
     mutationFn: async () => {
       await signOut();
@@ -40,6 +47,7 @@ export const useAuth = () => {
     status,
     loginMutation,
     logoutMutation,
+    pinMutation,
     registerMutation,
   };
 };

@@ -34,6 +34,7 @@ export const authOptions: AuthOptions = {
               nik: user.mu_nik,
               name: user.mu_fullname,
               phoneNumber: user.mu_phoneNumber,
+              pin: user.mu_pin,
               accessToken: user.token,
             };
           } else {
@@ -50,9 +51,13 @@ export const authOptions: AuthOptions = {
     async jwt({
       token,
       user,
+      trigger,
+      session,
     }: {
       token: JWT;
       user?: User | null;
+      trigger?: "signIn" | "update" | "signUp" | undefined;
+      session?: Session;
       account?: Account | null;
       profile?: Profile;
       isNewUser?: boolean;
@@ -61,8 +66,15 @@ export const authOptions: AuthOptions = {
         token.accessToken = user.accessToken;
         token.nik = user.nik;
         token.phoneNumber = user.phoneNumber;
+        token.pin = user.pin
         token.name = user.name
+        token.isPinVerified = false
       }
+
+      if (trigger === "update" && session?.isPinVerified) {
+        token.isPinVerified = session.isPinVerified;
+      }
+
       return token;
     },
     
@@ -72,7 +84,9 @@ export const authOptions: AuthOptions = {
         accessToken: token.accessToken,
         nik: token.nik as string,
         phoneNumber: token.phoneNumber as string,
-        name: token.name as string
+        pin: token.pin as string,
+        name: token.name as string,
+        isPinVerified: token.isPinVerified
       };
       return session;
     },

@@ -1,10 +1,14 @@
 export interface AuthTemplateProps {
   children: React.ReactNode;
-  hasAcc: boolean;
+  hasAcc?: boolean;
+  isTitle?: boolean;
+  isLinked?: boolean;
 }
 
 export interface RegisterPayload {
   mu_nik: string;
+  mu_fullname: string;
+  mu_blood_type: string;
   mu_phoneNumber: string;
   mu_password: string;
   mu_address: string;
@@ -16,4 +20,9 @@ export interface RegisterPayload {
 export interface LoginPayload {
   mu_nik: string;
   mu_password: string;
+}
+
+export interface PinPayload {
+  mu_nik: string;
+  mu_pin: string;
 }
