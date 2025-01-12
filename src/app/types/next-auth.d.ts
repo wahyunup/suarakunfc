@@ -7,6 +7,11 @@ declare module "next-auth" {
       name?: string;
       nik?: string;
       pin?: string;
+      address?: string;
+      province?: string;
+      district?: string;
+      city?: string;
+      bloodType?: string;
       phoneNumber?: string;
       isPinVerified?: boolean;
     } & DefaultSession["user"];
@@ -19,6 +24,11 @@ declare module "next-auth" {
     name?: string;
     nik?: string;
     pin?: string;
+    address?: string;
+    province?: string;
+    district?: string;
+    city?: string;
+    bloodType?: string;
     phoneNumber?: string;
   }
 }

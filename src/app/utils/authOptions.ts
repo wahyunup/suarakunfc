@@ -36,6 +36,11 @@ export const authOptions: AuthOptions = {
               phoneNumber: user.mu_phoneNumber,
               pin: user.mu_pin,
               accessToken: user.token,
+              address: user.mu_address,
+              province: user.mu_province,
+              district: user.mu_district,
+              city: user.mu_city,
+              bloodType: user.mu_blood_type,
             };
           } else {
             return null;
@@ -68,6 +73,11 @@ export const authOptions: AuthOptions = {
         token.phoneNumber = user.phoneNumber;
         token.pin = user.pin
         token.name = user.name
+        token.address = user.address
+        token.province = user.province
+        token.district = user.district
+        token.city = user.city
+        token.bloodType = user.bloodType
         token.isPinVerified = false
       }
 
@@ -86,6 +96,11 @@ export const authOptions: AuthOptions = {
         phoneNumber: token.phoneNumber as string,
         pin: token.pin as string,
         name: token.name as string,
+        address: token.address as string,
+        city: token.city as string,
+        province: token.province as string,
+        district: token.district as string,
+        bloodType: token.bloodType as string,
         isPinVerified: token.isPinVerified
       };
       return session;

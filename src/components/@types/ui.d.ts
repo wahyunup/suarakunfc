@@ -56,7 +56,7 @@ export interface UserCardProps {
   username : string;
   noTelp : string;
   mu_nik : string;
-  src : SVGProps<SVGImageElement>
+  src? : SVGProps<SVGImageElement>
 }
 
 export interface PopupProps {
@@ -65,4 +65,10 @@ export interface PopupProps {
   message? : string; 
   onClose? : () => void;
   onAction? : () => void;
+}
+
+export interface LabelUserProps {
+  heading: string;
+  subHeading: string;
+  iconEdit?: boolean;
 }

@@ -1,6 +1,8 @@
-interface LayoutProps {
+export interface LayoutProps {
     children : React.ReactNode;
     forgetpin : string;
 }
 
-return {LayoutProps};
+export interface DashboardProps {
+    children: React.ReactNode;
+}
