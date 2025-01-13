@@ -1,7 +1,7 @@
 import { LabelUserProps } from "@/components/@types/ui";
 import Image from "next/image";
 
-const LabelUser = ({ heading, subHeading, iconEdit }: LabelUserProps) => {
+const LabelUser = ({ heading, subHeading, iconEdit, onClick }: LabelUserProps) => {
   return (
     <>
       <div>
@@ -9,6 +9,7 @@ const LabelUser = ({ heading, subHeading, iconEdit }: LabelUserProps) => {
           <h1 className="text-[13px] font-normal">{heading}</h1>
           <div>
             <Image
+              onClick={onClick}
               className={iconEdit ? "cursor-pointer" : "hidden"}
               src={"/icon/editIcon.png"}
               width={14}

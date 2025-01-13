@@ -5,4 +5,5 @@ export interface LayoutProps {
 
 export interface DashboardProps {
     children: React.ReactNode;
+    onClick? : () => void;
 }

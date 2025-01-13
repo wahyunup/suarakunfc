@@ -71,4 +71,5 @@ export interface LabelUserProps {
   heading: string;
   subHeading: string;
   iconEdit?: boolean;
+  onClick? : () => void;
 }
