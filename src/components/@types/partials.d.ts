@@ -2,7 +2,7 @@ export interface NavButtonProps {
     route : string
     children : React.ReactNode;
     classname? : string
-    handleIsOpen? : () => void
+    handleIsActive? : () => void
 }
 
 export interface EditNumberProps {
