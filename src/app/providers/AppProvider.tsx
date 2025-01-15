@@ -12,7 +12,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     <SessionProvider>
       <QueryClientProvider client={queryClient}>
         <PopupProvider>
-          {children}
+            {children}
         </PopupProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

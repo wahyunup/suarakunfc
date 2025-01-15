@@ -160,6 +160,22 @@ const RegisterForm = () => {
         error={errors.rePassword?.message}
       />
 
+      {/* <Input
+        {...register("mu_fullname", { required: "Alamat wajib diisi" })}
+        name="mu_fullname"
+        placeholder="Fullname"
+        type="text"
+        error={errors.mu_address?.message}
+      /> */}
+
+      {/* <Input
+        {...register("mu_blood_type", { required: "Alamat wajib diisi" })}
+        name="mu_blood_type"
+        placeholder="Golongan darah"
+        type="text"
+        error={errors.mu_address?.message}
+      /> */}
+
       <Input
         {...register("mu_address", { required: "Alamat wajib diisi" })}
         name="mu_address"

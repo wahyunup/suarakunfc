@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { PopupProps, PopupContextProps } from "./@types/context";
-import PopUp from "@/components/ui/Modal/PopUp";
+import PopUp from "@/components/ui/modal/PopUp";
 
 const PopupContext = createContext<PopupContextProps | null>(null);
 
