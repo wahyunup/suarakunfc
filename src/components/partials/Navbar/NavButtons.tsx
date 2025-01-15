@@ -13,7 +13,7 @@ const NavButton = ({
   return (
       <NavButtons
       handleIsActive={handleIsActive} 
-        classname={`h-[77px] w-full flex items-center justify-center ${classname}`}
+        classname={`h-[77px] w-full flex items-center justify-center${classname}`}
         route={route}>
           {children}
       </NavButtons>

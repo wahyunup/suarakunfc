@@ -8,20 +8,27 @@ import HomeIcon from "@/components/partials/Navbar/icon/homeIcon";
 import UserIcon from "@/components/partials/Navbar/icon/userIcon";
 import LockedIcon from "@/components/partials/Navbar/icon/lockedIcon";
 import { usePathname } from "next/navigation";
+import { SidebarProvider } from "@/context/SideBarProvider";
 
 const UserCard = dynamic(() => import("@/components/ui/Card/UserCard"), {
   ssr: false,
   loading: () => <UserCardSkeleton />,
 });
 
-const DashboardLayout = ({ children}: { children: React.ReactNode; isActive: string; }) => {
+const DashboardLayout = ({
+  children,
+}: {
+  children: React.ReactNode;
+  isActive: string;
+}) => {
   const { data: session } = useSession();
   const currentPath = usePathname();
 
   return (
+    <SidebarProvider>
     <div className="h-screen pt-[21px] bg-[#F4F4F4]">
       <div className="flex h-full justify-between flex-col">
-        {/* Konten Utama */}
+
         <div className="px-[28px] flex justify-center items-center flex-col">
           <UserCard
             userImage="/icon/icon-user.webp"
@@ -32,22 +39,22 @@ const DashboardLayout = ({ children}: { children: React.ReactNode; isActive: str
           {children}
         </div>
 
-        {/* Navigasi Bawah */}
-        <div className="fixed bottom-0 left-0 w-full bg-white shadow-lg z-50 flex justify-between items-center">
-        <NavButton route="/">
+        <div className="fixed bottom-0 left-0 w-full bg-white shadow-lg flex justify-between items-center">
+          <NavButton route="/">
             <HomeIcon color={currentPath === "/" ? "#345FCB" : ""} />
           </NavButton>
 
-          <NavButton route="/user" >
-            <UserIcon color={currentPath === "/user" ? "#345FCB" : ""}/>
+          <NavButton route="/user">
+            <UserIcon color={currentPath === "/user" ? "#345FCB" : ""} />
           </NavButton>
 
           <NavButton route="/auth/input-pin" classname="bg-red-600 text-white">
-            <LockedIcon color="white"/>
+            <LockedIcon color="white" />
           </NavButton>
         </div>
       </div>
     </div>
+    </SidebarProvider>
   );
 };
 

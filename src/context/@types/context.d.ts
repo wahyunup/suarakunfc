@@ -10,3 +10,8 @@ export interface PopupContextProps {
   showPopup: (data: PopupData) => void;
   hidePopup: () => void;
 }
+
+export interface SidebarContextProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
