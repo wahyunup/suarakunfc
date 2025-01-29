@@ -33,6 +33,7 @@ export const authOptions: AuthOptions = {
               id: user.mu_id,
               nik: user.mu_nik,
               name: user.mu_fullname,
+              avatar: user.mu_avatar_url,
               phoneNumber: user.mu_phoneNumber,
               pin: user.mu_pin,
               accessToken: user.token,
@@ -70,6 +71,7 @@ export const authOptions: AuthOptions = {
       if (user?.accessToken) {
         token.accessToken = user.accessToken;
         token.nik = user.nik;
+        token.avatar = user.avatar
         token.phoneNumber = user.phoneNumber;
         token.pin = user.pin
         token.name = user.name
@@ -93,6 +95,7 @@ export const authOptions: AuthOptions = {
         ...session.user,
         accessToken: token.accessToken,
         nik: token.nik as string,
+        avatar: token.avatar as string,
         phoneNumber: token.phoneNumber as string,
         pin: token.pin as string,
         name: token.name as string,

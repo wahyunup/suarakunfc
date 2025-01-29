@@ -6,6 +6,7 @@ declare module "next-auth" {
       accessToken?: string;
       name?: string;
       nik?: string;
+      avatar?: string;
       pin?: string;
       address?: string;
       province?: string;
@@ -23,6 +24,7 @@ declare module "next-auth" {
     accessToken?: string;
     name?: string;
     nik?: string;
+    avatar?: string;
     pin?: string;
     address?: string;
     province?: string;
